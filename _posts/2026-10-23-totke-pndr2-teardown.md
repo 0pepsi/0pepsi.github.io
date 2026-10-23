@@ -12,8 +12,6 @@ Last week he tells me his phone (a Vivo V2333) is "acting up". Battery dead by a
 
 Five hours later I had cracked two packers with a python script, mapped a command and control network spread across four countries, replayed the malware's own API handshake from my laptop, and downloaded the second stage payload straight off their CDN. This is the writeup.
 
-![The Great Story of Totke](/assets/img/totke-cover.jpg)
-
 
 ## The triage
 
