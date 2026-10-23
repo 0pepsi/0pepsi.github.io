@@ -1,0 +1,14 @@
+/* Rouge "github light" palette for Jekyll syntax highlighting */
+.highlight .c, .highlight .cm, .highlight .c1 { color: #6e7781; font-style: italic; }
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kr { color: #cf222e; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .se, .highlight .sh, .highlight .sx { color: #0a3069; }
+.highlight .n, .highlight .na, .highlight .nb, .highlight .nc, .highlight .nd, .highlight .ne, .highlight .nf, .highlight .nn, .highlight .no, .highlight .nt, .highlight .nv { color: #0550ae; }
+.highlight .nf, .highlight .fm { color: #8250df; }
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo { color: #0550ae; }
+.highlight .o, .highlight .ow { color: #0550ae; }
+.highlight .p { color: #24292f; }
+.highlight .si, .highlight .sr, .highlight .ss { color: #0a3069; }
+.highlight .bp, .highlight .vc, .highlight .vg, .highlight .vi { color: #953800; }
+.highlight .kt { color: #cf222e; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }
