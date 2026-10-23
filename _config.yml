@@ -1,6 +1,5 @@
 title: pwnioeer
 description: security research, malware teardowns, mobile shenanigans
-baseurl: "/pwnioeer.github.io"
 markdown: kramdown
 highlighter: rouge
 kramdown:
