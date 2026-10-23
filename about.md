@@ -3,10 +3,15 @@ layout: default
 title: About
 ---
 
-Security researcher and exploit developer. I take things apart to see what they're hiding, and lately that means Android malware, food delivery apps, and whatever my little brother installs next.
+Hello! My name is Jabr Al-Otaibi, im from Saudi Arabia, and im 18 years old. I started cybersecurity when i was 14, web bug bounties and pentesting and ended up getting into software exploitation and vulnerability research when i turned 16 until it became my day job. Yay 
 
-This blog is where I document the teardowns so they stick in my head. If it helps you catch something on your own device, even better.
+I'm interested in 
+- base**** exploitation, 
+- kernel and 
+- anything related to iOS in general. 
 
-The Totke story is the first entry. It won't be the last. There's already a food-delivery engagement in the pipeline with a hardcoded API secret and a price field that trusts the client a little too much.
+And interested as in-fascinated-but-yet-to-study the topic.
 
-Find me yelling about it on Twitter, or dig through the IOC tables and go hunting yourself.
+This blog is where I document the teardowns so they stick in my head. If it helps you catch something on your own device, otherwise blogging isnt really my thing i just try to write stuff down so i understand it better.
+
+Follow me on twitter @AbuDhaar1
