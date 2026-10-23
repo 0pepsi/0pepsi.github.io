@@ -3,58 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page.title | default: site.title }}</title>
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
 <link rel="stylesheet" href="{{ '/assets/css/rouge.css' | relative_url }}">
 <style>
-  :root { --ink:#24292f; --muted:#57606a; --line:#d0d7de; --code-bg:#f6f8fa; --accent:#0969da; }
+  :root {
+    --ink:#23272e; --muted:#6b7178; --line:#e3e1dc; --code-bg:#f7f5f1;
+    --accent:#8a6d3b; --paper:#fdfdfc;
+  }
   * { box-sizing: border-box; }
   body {
-    margin: 0; background: #ffffff; color: var(--ink);
-    font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.65;
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.7;
   }
-  header.site {
-    border-bottom: 1px solid var(--line); padding: 20px 0; margin-bottom: 36px;
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  header.site { padding: 34px 0 26px; border-bottom: 1px solid var(--line); margin-bottom: 44px; }
+  header.site .brand {
+    font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: bold;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.5px;
   }
-  header.site .wrap { max-width: 740px; margin: 0 auto; padding: 0 20px; }
-  header.site a.brand { color: var(--ink); text-decoration: none; font-weight: bold; font-size: 20px; letter-spacing: -0.3px; }
-  header.site span.tag { color: var(--muted); font-size: 13px; margin-left: 10px; }
-  main { max-width: 740px; margin: 0 auto; padding: 0 20px 80px; }
-  h1 { font-size: 30px; line-height: 1.25; letter-spacing: -0.5px; margin: 0 0 24px; }
-  h2 { font-size: 22px; margin: 48px 0 12px; padding-top: 8px; border-top: 1px solid var(--line); letter-spacing: -0.2px; }
-  h3 { font-size: 18px; margin: 32px 0 8px; color: #1b1f24; }
+  header.site .tag { color: var(--muted); font-size: 13px; display: block; margin-top: 4px; }
+  header.site nav { float: right; margin-top: -34px; }
+  header.site nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  header.site nav a:hover { color: var(--ink); }
+
+  /* home */
+  .post-list { list-style: none; padding: 0; margin: 0; }
+  .post-list li { margin-bottom: 44px; }
+  .post-list .date { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .post-list h2 { border: none; margin: 4px 0 8px; padding: 0; font-size: 24px; }
+  .post-list h2 a { color: var(--ink); text-decoration: none; }
+  .post-list h2 a:hover { color: var(--accent); }
+  .post-list .excerpt { color: #4a4f55; margin: 0 0 10px; }
+  .post-list .read { font-size: 13px; color: var(--accent); text-decoration: none; }
+  .post-list .cover-thumb { margin: 10px 0 14px; }
+  .post-list .cover-thumb img { border-radius: 6px; border: 1px solid var(--line); }
+
+  /* post */
+  .post-cover { margin: 0 0 28px; }
+  .post-cover img { width: 100%; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  .post-meta { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 14px; }
+
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 32px; line-height: 1.25; letter-spacing: -0.5px; margin: 0 0 26px; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin: 52px 0 14px; padding-top: 12px; border-top: 1px solid var(--line); letter-spacing: -0.2px; }
+  h3 { font-size: 17px; margin: 34px 0 8px; color: #1b1f24; }
   p { margin: 0 0 18px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   ul, ol { padding-left: 24px; }
   li { margin-bottom: 6px; }
-  blockquote { margin: 0 0 18px; padding: 0 16px; border-left: 4px solid var(--line); color: var(--muted); }
+  blockquote { margin: 0 0 18px; padding: 2px 18px; border-left: 3px solid var(--accent); color: var(--muted); background: #faf9f6; }
   code {
     background: var(--code-bg); padding: 2px 6px; border-radius: 4px;
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.86em;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em;
   }
   pre {
     background: var(--code-bg); border: 1px solid var(--line); border-radius: 6px;
-    padding: 14px 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.5;
+    padding: 14px 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.55;
   }
   pre code { background: none; padding: 0; font-size: inherit; }
-  table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 14px; display: block; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 0 0 22px; font-size: 14px; display: block; overflow-x: auto; }
   th, td { border: 1px solid var(--line); padding: 7px 12px; text-align: left; vertical-align: top; }
-  th { background: var(--code-bg); }
+  th { background: var(--code-bg); font-family: Georgia, serif; }
   td code { word-break: break-all; }
-  hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
   img { max-width: 100%; }
-  footer.site { max-width: 740px; margin: 0 auto; padding: 24px 20px 60px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  main img { border-radius: 6px; }
+
+  footer.site { border-top: 1px solid var(--line); margin-top: 60px; padding: 26px 0 60px; color: var(--muted); font-size: 13px; }
+  footer.site a { color: var(--muted); text-decoration: underline; }
 </style>
 </head>
 <body>
 <header class="site"><div class="wrap">
   <a class="brand" href="{{ '/' | relative_url }}">pwnioeer</a>
-  <span class="tag">security research &amp; malware teardowns</span>
+  <nav>
+    <a href="{{ '/' | relative_url }}">posts</a>
+  </nav>
+  <span class="tag">security research, malware teardowns, mobile shenanigans</span>
 </div></header>
-<main>
-{% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
+<main class="wrap">
 {{ content }}
 </main>
-<footer class="site">pwnioeer · written because the pipeline failed to notice</footer>
+<footer class="site"><div class="wrap">
+  pwnioeer · written because the pipeline failed to notice
+</div></footer>
 </body>
 </html>
