@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trivial malware found on my brother's device
+title: The Great Story of Totke
 date: 2026-10-23
 cover: /assets/img/totke-cover.jpg
 excerpt: A no-icon app on my little brother's phone turned into two cracked packers, a four-country C2 map, and a second-stage payload served to me by the operator's own CDN.
